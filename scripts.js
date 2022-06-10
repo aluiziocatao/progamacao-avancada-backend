@@ -281,13 +281,25 @@ console.log(jsonCalc)
 
 
 
-
+let x = 20
 const fora = () => {
-    const x = 10
+    let x = 18
     function somarXMais5(){
         console.log(x + 5);
     }
     return somarXMais5();
 }
 fora()
+
+//REsoolução do professor 01
+// let x = 10
+// let fora = () => (() => x+ 5)()
+// console.log(fora())
+// console.log(typeof fora())
+
+//REsolução do Professor 02
+// let x = 10
+// const fora = () => ((x + 7), () => x + 5) ()
+// console.log(fora())
+//Fim da resolução do professor
 //Fim do Exemplo de Clousure
