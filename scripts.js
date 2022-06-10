@@ -237,29 +237,57 @@ console.log(jsonCalc)
 //     return parseInt(total)+parseInt(numero)
 // }))
 
-function minhaFuncao(){
-    console.log("Teste");
-}
-minhaFuncao();
+// function minhaFuncao(){
+//     console.log("Teste");
+// }
+// minhaFuncao();
 
-const funcao = function minhaFuncao(nome, sobrenome){
-    // console.log(`O nome completo é ${nome} ${sobrenome}.`)
-    // console.log(typeof nome, typeof sobrenome);
-    return (`O nome completo é ${nome} ${sobrenome}.`);
-}
-const nome = 'Aluízio'
-const sobrenome = 'Catão'
-console.log(funcao(nome, sobrenome))
-funcao(10, 31)
+// const funcao = function minhaFuncao(nome, sobrenome){
+//     // console.log(`O nome completo é ${nome} ${sobrenome}.`)
+//     // console.log(typeof nome, typeof sobrenome);
+//     return (`O nome completo é ${nome} ${sobrenome}.`);
+// }
+// const nome = 'Aluízio'
+// const sobrenome = 'Catão'
+// console.log(funcao(nome, sobrenome))
+// funcao(10, 31)
 
-//arrow function
-const soma = (a, b) => {
-    return a + b;
-}
-console.log(soma(2,3))
+// //arrow function
+// const soma = (a, b) => {
+//     return a + b;
+// }
+// console.log(soma(2,3))
 
-const lista = ['a', 'b', 'c', 'd']
+// const lista = ['esse cara é maior', 'b', 'c', 'd']
 
-lista.map(() => {
+// console.log(lista.map(elemento => elemento.length ))
+
+// //Exemplo de Clousure
+// function makeFunc() {
+//     const name = "Mozilla";
     
-})
+//     function displayName() {
+//         console.log(name);
+//     }
+    
+//     return displayName;
+// }
+  
+// const myFunc = makeFunc();
+// myFunc();
+
+
+
+
+
+
+
+const fora = () => {
+    const x = 10
+    function somarXMais5(){
+        console.log(x + 5);
+    }
+    return somarXMais5();
+}
+fora()
+//Fim do Exemplo de Clousure
