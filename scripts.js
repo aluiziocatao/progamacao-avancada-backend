@@ -1,6 +1,9 @@
-/*console.log("Hello, world, Javascript!")
+console.log("Hello, world, Javascript!")
+/*
 
-//variáveis
+//Resumão básico como introdução para posteriormente utilizar nodeJs
+
+//variáveis javascript 
 var x = 10 //number
 //formas mais convenientes de declarar variáveis
 let y = 50
@@ -16,7 +19,7 @@ if(1){
 
 console.log(y)
 
-//tipos
+//tipos de variáveis
 
 const nome = "Aluizio"
 console.log(nome)
@@ -52,7 +55,7 @@ console.log(typeof vetor)
 console.log(vetor.length)
 
 
-//object literals
+//objetos literais
 const usuario = { 
     email: 'eu@email.com',
     senha: 'teste123', 
@@ -97,7 +100,7 @@ console.log(lista)
 lista.unshift('h')
 console.log(lista)
 
-//object literals - estruturas que descrema entidade.
+//objetos literais
 const produto = {
     nome: 'Camisa',
     preco: 9.99,
@@ -108,7 +111,7 @@ const produto = {
 
 console.log(produto['preco'])
 
-//destructuring - recurso para objetos, para extrair conteúdo de dentro deles
+//desestruturando objetos para obter dados
 const { preco, emEstoque } = produto
 console.log(preco)
 console.log(emEstoque)
@@ -180,12 +183,12 @@ console.log(jsonCalc)
 // else
 //     console.log('Saída...') // erro na hora de pensar o código...
 
-// //operador ternário
+// operador ternário
 // const resultado =  n > 20 ? true : false
 // console.log(resultado)
 // console.log(typeof resultado)
 
-// //repetição: precisa de 3 partes - variável de controle e a inicialização dela; condição/critério de parada; alteração do valor da variável de controle
+// repetição: precisa de 3 partes - variável de controle e a inicialização dela; condição/critério de parada; alteração do valor da variável de controle
 
 // let contador = 0
 // const lista = [1, 7, 3, 64, 2, 0]
@@ -276,20 +279,15 @@ console.log(jsonCalc)
 // const myFunc = makeFunc();
 // myFunc();
 
-
-
-
-
-
-let x = 20
-const fora = () => {
-    let x = 18
-    function somarXMais5(){
-        console.log(x + 5);
-    }
-    return somarXMais5();
-}
-fora()
+// let x = 20
+// const fora = () => {
+//     let x = 18
+//     function somarXMais5(){
+//         console.log(x + 5);
+//     }
+//     return somarXMais5();
+// }
+// fora()
 
 //REsoolução do professor 01
 // let x = 10
@@ -303,3 +301,83 @@ fora()
 // console.log(fora())
 //Fim da resolução do professor
 //Fim do Exemplo de Clousure
+
+//Vamos falar de orientação a objetos 
+class Produto {
+    constructor(nome, preco){
+        this.nome = nome
+        this.preco = preco
+    }
+    detalhesDoProduto(){
+        console.log(`O preço do produto ${this.nome} é R$ ${this.preco}`)
+    }
+}
+
+const camisa = new Produto('Camisa', 19.90)
+console.log(camisa.nome)
+console.log(typeof camisa)
+console.log(camisa.detalhesDoProduto())
+
+const meia = new Produto('Meia', 8.50)
+console.log(meia.nome)
+console.log(typeof meia)
+console.log(meia.detalhesDoProduto())
+
+//Vamos falar sobre herança.
+
+class ProdutoComTamanho extends Produto{
+    constructor(nome, preco, tamanho){
+        super(nome, preco)
+        this.tamanho = tamanho
+    }
+    outraMensagem(adjetivo){
+        return `O produto ${this.nome} é ${adjetivo} demais.`
+    }
+}
+const tenis = new ProdutoComTamanho('Nike', 26.50, 39)
+console.log(tenis.nome)
+console.log(tenis.preco)
+console.log(tenis.tamanho)
+console.log(tenis.detalhesDoProduto())
+console.log(tenis.outraMensagem('Lindo'))
+
+//dom dom dom dom DOM - Vamos jogar DOOM agora
+
+const titulo = document.getElementById('title')
+console.log(title)
+
+//Query selector
+const mesmoTitle = document.querySelector('#title')
+console.log(mesmoTitle)
+
+const todosOsPs = document.querySelectorAll('.texto')
+console.log(todosOsPs)
+console.log(todosOsPs[1])
+console.log(typeof todosOsPs)
+
+todosOsPs.forEach((texto) => console.log(texto.textContent.toUpperCase()))
+
+//manipulação dentro do javascript
+
+const textoAlterado = todosOsPs[0].textContent
+console.log(textoAlterado)
+
+todosOsPs[5].innerHTML = "Hello World JavaScript"
+
+todosOsPs[2].style.backgroundColor = 'aquamarine'
+
+todosOsPs[3].classList.add('textp')
+todosOsPs[3].classList.remove('texto')
+
+titulo.remove()
+
+//Events de click
+
+const button = document.getElementById('button')
+button.addEventListener('click', () => {
+    console.log('TEstando Botão sendo clicado')
+})
+
+button.addEventListener('click', function(){
+    todosOsPs[2].style.backgroundColor = 'red'
+})
