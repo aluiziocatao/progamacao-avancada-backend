@@ -37,6 +37,11 @@ setTimeout(() => {
   console.log("Hello World!") //Aparecendo a mensagem após 3 segundos.
 }, 3000)*/
 
+
+// Desafio da aula 13/06/2022
+
+const tempo = dataHora();
+
 function dataHora(){
   const data = new Date();
 

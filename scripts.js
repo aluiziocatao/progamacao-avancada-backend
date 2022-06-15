@@ -1,4 +1,4 @@
-console.log("Hello, world, Javascript!")
+// console.log("Hello, world, Javascript!")
 /*
 
 //Resumão básico como introdução para posteriormente utilizar nodeJs
@@ -303,81 +303,152 @@ console.log(jsonCalc)
 //Fim do Exemplo de Clousure
 
 //Vamos falar de orientação a objetos 
-class Produto {
-    constructor(nome, preco){
-        this.nome = nome
-        this.preco = preco
-    }
-    detalhesDoProduto(){
-        console.log(`O preço do produto ${this.nome} é R$ ${this.preco}`)
-    }
+// class Produto {
+//     constructor(nome, preco){
+//         this.nome = nome
+//         this.preco = preco
+//     }
+//     detalhesDoProduto(){
+//         console.log(`O preço do produto ${this.nome} é R$ ${this.preco}`)
+//     }
+// }
+
+// const camisa = new Produto('Camisa', 19.90)
+// console.log(camisa.nome)
+// console.log(typeof camisa)
+// console.log(camisa.detalhesDoProduto())
+
+// const meia = new Produto('Meia', 8.50)
+// console.log(meia.nome)
+// console.log(typeof meia)
+// console.log(meia.detalhesDoProduto())
+
+// //Vamos falar sobre herança.
+
+// class ProdutoComTamanho extends Produto{
+//     constructor(nome, preco, tamanho){
+//         super(nome, preco)
+//         this.tamanho = tamanho
+//     }
+//     outraMensagem(adjetivo){
+//         return `O produto ${this.nome} é ${adjetivo} demais.`
+//     }
+// }
+// const tenis = new ProdutoComTamanho('Nike', 26.50, 39)
+// console.log(tenis.nome)
+// console.log(tenis.preco)
+// console.log(tenis.tamanho)
+// console.log(tenis.detalhesDoProduto())
+// console.log(tenis.outraMensagem('Lindo'))
+
+// //dom dom dom dom DOM - Vamos jogar DOOM agora
+
+// const titulo = document.getElementById('title')
+// console.log(title)
+
+// //Query selector
+// const mesmoTitle = document.querySelector('#title')
+// console.log(mesmoTitle)
+
+// const todosOsPs = document.querySelectorAll('.texto')
+// console.log(todosOsPs)
+// console.log(todosOsPs[1])
+// console.log(typeof todosOsPs)
+
+// todosOsPs.forEach((texto) => console.log(texto.textContent.toUpperCase()))
+
+// //manipulação dentro do javascript
+
+// const textoAlterado = todosOsPs[0].textContent
+// console.log(textoAlterado)
+
+// todosOsPs[5].innerHTML = "Hello World JavaScript"
+
+// todosOsPs[2].style.backgroundColor = 'aquamarine'
+
+// todosOsPs[3].classList.add('textp')
+// todosOsPs[3].classList.remove('texto')
+
+// titulo.remove()
+
+// //Events de click
+
+// const button = document.getElementById('button')
+// button.addEventListener('click', () => {
+//     console.log('TEstando Botão sendo clicado')
+// })
+
+// button.addEventListener('click', function(){
+//     todosOsPs[2].style.backgroundColor = 'red'
+// })
+// 14-06-2022
+// Aula de JavaScript Síncrono
+
+// function soma(){
+//     const resultado = 1 + 1;
+//     resultado === 2 ? sucesso() : erro()
+// }
+
+// function sucesso(){
+//     console.log("Sucesso! A soma foi 2.")
+// }
+
+// function erro(){
+//     console.log("Erro! A soma não foi 2. Alguma coisa deu errado.....")
+// }
+// soma()
+// soma(
+//     () => {
+//         console.log("Sucesso! A soma foi 2.")
+//     },
+//     () => {
+//         console.log("Erro! A soma não foi 2. Alguma coisa deu errado.....")
+//     }
+
+// )
+
+// As Promises são classes em JavaScript - Métodos a serem usados: then e catch
+// const p = new Promise((resolve, reject) => {
+//     const resultado = 1 + 1;
+//     resultado === 2 ? resolve("Sucesso! A soma foi 2.") : reject("Erro! A soma não foi 2. Alguma coisa deu errado.....");
+// })
+// p.then((mensagem) => {
+//      console.log(`Isso é o que está dentro do then: ${mensagem}`);
+//  })
+//  .catch((mensagem) => {
+//     console.log(`Isso é o que está dentro do catch: ${mensagem}`);
+//  })
+
+ // Callbacks
+ const melhorDev = 'Aluaizio';
+ 
+// function quemEhMelhorDev(callback, callcackErro){
+//     melhorDev === 'Aluizio' 
+//     ? callback({ nome: melhorDev, mensagem: `, Humildemente é o melhor!`})
+//     : callcackErro({ mensagem01: 'Ta errado....', mensagem02: `${melhorDev}, sério?` })
+// }
+
+// quemEhMelhorDev(
+//     (resultado) => {
+//         console.log(resultado.nome + resultado.mensagem)
+//     },
+//     (erro) => {
+//         console.log(erro.mensagem01 + erro.mensagem02)
+//     }
+// )
+
+function kemEhOMelhorDev(){
+    return new Promise((resolve, reject) => {
+        melhorDev === 'Aluizio' 
+        ? resolve({ nome: melhorDev, mensagem: `, Humildemente é o melhor!`})
+        : reject({ mensagem01: 'Ta errado....', mensagem02: `${melhorDev}?, sério?` })
+    })
 }
 
-const camisa = new Produto('Camisa', 19.90)
-console.log(camisa.nome)
-console.log(typeof camisa)
-console.log(camisa.detalhesDoProduto())
-
-const meia = new Produto('Meia', 8.50)
-console.log(meia.nome)
-console.log(typeof meia)
-console.log(meia.detalhesDoProduto())
-
-//Vamos falar sobre herança.
-
-class ProdutoComTamanho extends Produto{
-    constructor(nome, preco, tamanho){
-        super(nome, preco)
-        this.tamanho = tamanho
-    }
-    outraMensagem(adjetivo){
-        return `O produto ${this.nome} é ${adjetivo} demais.`
-    }
-}
-const tenis = new ProdutoComTamanho('Nike', 26.50, 39)
-console.log(tenis.nome)
-console.log(tenis.preco)
-console.log(tenis.tamanho)
-console.log(tenis.detalhesDoProduto())
-console.log(tenis.outraMensagem('Lindo'))
-
-//dom dom dom dom DOM - Vamos jogar DOOM agora
-
-const titulo = document.getElementById('title')
-console.log(title)
-
-//Query selector
-const mesmoTitle = document.querySelector('#title')
-console.log(mesmoTitle)
-
-const todosOsPs = document.querySelectorAll('.texto')
-console.log(todosOsPs)
-console.log(todosOsPs[1])
-console.log(typeof todosOsPs)
-
-todosOsPs.forEach((texto) => console.log(texto.textContent.toUpperCase()))
-
-//manipulação dentro do javascript
-
-const textoAlterado = todosOsPs[0].textContent
-console.log(textoAlterado)
-
-todosOsPs[5].innerHTML = "Hello World JavaScript"
-
-todosOsPs[2].style.backgroundColor = 'aquamarine'
-
-todosOsPs[3].classList.add('textp')
-todosOsPs[3].classList.remove('texto')
-
-titulo.remove()
-
-//Events de click
-
-const button = document.getElementById('button')
-button.addEventListener('click', () => {
-    console.log('TEstando Botão sendo clicado')
-})
-
-button.addEventListener('click', function(){
-    todosOsPs[2].style.backgroundColor = 'red'
-})
+kemEhOMelhorDev()
+    .then((resultado) => {
+        console.log(resultado.nome + resultado.mensagem)
+    })
+    .catch((erro) => {
+        console.log(erro.mensagem01 + erro.mensagem02)
+    })
