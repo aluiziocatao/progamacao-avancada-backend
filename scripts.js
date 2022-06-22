@@ -420,7 +420,7 @@ console.log(jsonCalc)
 //  })
 
  // Callbacks
- const melhorDev = 'Aluaizio';
+//  const melhorDev = 'Aluaizio';
  
 // function quemEhMelhorDev(callback, callcackErro){
 //     melhorDev === 'Aluizio' 
@@ -437,18 +437,34 @@ console.log(jsonCalc)
 //     }
 // )
 
-function kemEhOMelhorDev(){
-    return new Promise((resolve, reject) => {
-        melhorDev === 'Aluizio' 
-        ? resolve({ nome: melhorDev, mensagem: `, Humildemente é o melhor!`})
-        : reject({ mensagem01: 'Ta errado....', mensagem02: `${melhorDev}?, sério?` })
-    })
-}
+// function kemEhOMelhorDev(){
+//     return new Promise((resolve, reject) => {
+//         melhorDev === 'Aluizio' 
+//         ? resolve({ nome: melhorDev, mensagem: `, Humildemente é o melhor!`})
+//         : reject({ mensagem01: 'Ta errado....', mensagem02: `${melhorDev}?, sério?` })
+//     })
+// }
 
-kemEhOMelhorDev()
-    .then((resultado) => {
-        console.log(resultado.nome + resultado.mensagem)
+// kemEhOMelhorDev()
+//     .then((resultado) => {
+//         console.log(resultado.nome + resultado.mensagem)
+//     })
+//     .catch((erro) => {
+//         console.log(erro.mensagem01 + erro.mensagem02)
+//     })
+
+// INÍCIO DO DESAFIO
+// Resolução do Professor
+fetch('http://jsonplaceholder.typicode.com/users') // Objeto do JS(ES6) que funciona comom uma Promise e trabalha requisiçoes e respostas HTTP
+    .then((resultado) => resultado.json()) // Recebendo os dados e convertendo para JSON
+    .then(function (dado){ // Recebendo os dados em um array
+        return dado.map(function(item){ // Percorrendo todo o array com o método map
+            const li = document.createElement('li') // Criando um elemento li
+            li.innerHTML = `Nome:  ${item.name} | Sobrenome: ${item.username}` //Inserindo o elemento no HTML
+            document.getElementById('nomes').appendChild(li) // Inserindo um nó do tipo li na estrutura do DOM
+        })
     })
-    .catch((erro) => {
-        console.log(erro.mensagem01 + erro.mensagem02)
+    .catch((error) => {
+        console.log('Algo deu errado: ' + error)
     })
+// FIM DO DESAFIO
