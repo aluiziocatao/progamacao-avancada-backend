@@ -5,6 +5,8 @@
 // Impotando o módulo OS do NodeJS
 const os = require('os');
 
+const log = require('./logger');
+
 // Utilizado desestruturação para criar as variáreis que armazenarão a quantidade de memória disponível e total do pc.
 const { freemem, totalmem } = os;
 
@@ -17,20 +19,26 @@ const { freemem, totalmem } = os;
 // const total = parseInt(totalmem() / 1024 / 1024) + " MB";
 // const percents = parseInt((free / total) * 100);
 
-// const stats = {
-//     free,
-//     total,
-//     percents
-// }
+// console.log(free, total, percents);
 
-// O objeto stats armazena o estado da memória com relação a quantos MB estão livres, quantos existem no total e a porcentagem que está sendo usada.
-const stats = {
-    free: `${parseInt(freemem() / 1024 / 1024)} MB`,
-    total: `${parseInt(totalmem() / 1024 / 1024)} MB`,
-    percents: `${parseInt(parseInt(freemem() / 1024 / 1024) / 
-        parseInt(totalmem() / 1024 / 1024) * 100)}%`,
-}
-console.log(stats)
-// Formatando a saída dos dados da memória para uma tabela
-console.log("+++++ MEMORY STATS +++++")
-console.table(stats)
+//setInterval está fazendo o eventloop functionar de 1 em 1 segundo para o código que é passado no primeiro argumento(callback)
+setInterval( () => {
+    // O objeto stats armazena o estado da memória com relação a quantos MB estão livres, quantos existem no total e a porcentagem que está sendo usada.
+    const freememory = parseInt(freemem() / 1024 / 1024);
+    const totalmemory = parseInt(totalmem() / 1024 / 1024);
+    const percents = parseInt((totalmemory-freememory)  / totalmemory * 100);
+
+    const stats = {
+        free: `${freememory} MB`,
+        total: `${totalmemory} MB`,
+        usage: `${percents}%`,
+    }
+    // console.log(stats)
+    // Formatando a saída dos dados da memória para uma tabela
+    console.clear();
+    console.log("+++++ MEMORY STATS +++++")
+    console.table(stats)
+    // Passando as estatístiscas da memória livre, memória total e o percentual da memória usada
+    // Transformamos o objeto em JSON e passado para o log.txt
+    log(`${JSON.stringify(stats)} \n`);
+}, 1000)
