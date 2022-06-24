@@ -39,6 +39,6 @@ setInterval( () => {
     console.log("+++++ MEMORY STATS +++++")
     console.table(stats)
     // Passando as estatístiscas da memória livre, memória total e o percentual da memória usada
-    // Transformamos o objeto em JSON e passado para o log.txt
+    // Chamada da função log e transformamos o objeto em JSON e passando para o log.txt
     log(`${JSON.stringify(stats)} \n`);
 }, 1000)
