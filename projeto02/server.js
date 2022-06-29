@@ -1,39 +1,35 @@
-// Importando o módulo http para a váriavel http
-const http = require('http');
-// Importando o módulo fs para a váriavel fs
-const fs = require('fs');
-// Importando o módulo path para a váriavel path
-const path = require('path');
+/* 
+Esse código cria um servidor a partir da utilização do módulo http. Está sendo servido o HTML, o CSS e o JavaScript.
+*/
 
-// Definindo uma const port para definir a porta em que o servidor será iniciado
-const $port = 8000;
+const http = require('http')
+const fs = require('fs')
+const path = require('path')
 
-// Criando a conexão do servidor
-// Definindo as rotas que irão trafegar na aplicação utilizando o fs.readFile com o path.join.
-// Utilizei também o Switch em vez do IF
-http.createServer(function (req, res) {
-    switch(req.url){
-        case '/':
-            fs.readFile(
-                // Definição da pasta onde irá procurar o arquivo que será enviado para o res.end para ser renderizado
-                path.join(__dirname, 'public', 'index.html'),
-                (error, content) => {
-                    if (error) throw error
-                    // Passagem do conteúdo da index.html através do res.end
-                    res.end(content)
-                }
-            );
-        break;
+// Método para criar o servidor local. Rodando na porta 5000.
+http.createServer((req, res) => {
 
-        case '/contact':
-            res.end('<h1>Contact</h1>');
-        break;
+    const file = req.url === '/' ? 'index.html' : req.url
 
-    default:
-        res.end('<h1>Unknown URL</h1>');
-        break;
-    }
-}).listen($port, () => {
-    // Mensagem que irá aparecer no console do terminal caso o servidor inicie com sucesso
-    console.log(`Server is running on port: ${$port}`);
-});
+    const filePath = path.join(__dirname, 'public', file)
+
+    console.log(file)
+
+    const extname = path.extname(filePath)
+
+    const allowedFileTypes = ['.html','.css','.js']
+
+    const allowed = allowedFileTypes.find(item => item == extname)
+
+    if(!allowed) return
+
+    fs.readFile(
+        filePath,
+        (err, content) => {
+            if (err) throw err
+
+            res.end(content)
+        }
+    )
+
+}).listen(5000, () => { console.log('Server is running.') })
