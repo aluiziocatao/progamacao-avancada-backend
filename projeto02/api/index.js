@@ -1,23 +1,40 @@
-const http = require('http')
-const data = require('./url.json')
-const URL = require('url')
+const http = require("http");
+const data = require("./url.json");
+const URL = require("url");
+const fs = require("fs");
+const path = require("path");
 
-http.createServer((req, res) => {
-    // res.end(JSON.stringify(data))
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Access-Control-Allow-Origin": "*" });
 
-    const {name, url, del} = URL.parse(req.url,true).query
+    const { name, url, del } = URL.parse(req.url, true).query;
 
-    if(!name || !url){
-        return res.end('show')
+    function writeFile(cb) {
+      fs.writeFile(
+        path.join(__dirname, "url.json"),
+        JSON.stringify(data, null, 2),
+        (err) => {
+          if (err) throw err;
+          cb("Operacao realizada com sucesso!");
+        }
+      );
     }
 
-    if(del) {
-        return res.end('delete')
+    if (!name || !url) {
+      res.end(JSON.stringify(data));
     }
 
-    return res.end('create')
+    if (del) {
+      data.urls = data.urls.filter((item) => item.url != url);
 
-}).listen(3000, () => console.log('API is running'));
+      return writeFile((message) => res.end(message));
+    }
+
+    data.urls.push({ name, url });
+    return writeFile((message) => res.end(message));
+  })
+  .listen(3000, () => console.log("API is running"));
 
 // Para Testes
 // URL para retorno SHOW: http://localhost:3000/index.js
