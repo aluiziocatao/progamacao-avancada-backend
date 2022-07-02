@@ -2,19 +2,16 @@
 
 ## Programação Avançada Backend
 
-![GitHub repo size](https://img.shields.io/github/repo-size/aluiziocatao/backend-avancado?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/aluiziocatao/backend-avancado?style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/aluiziocatao/backend-avancado?style=for-the-badge)
-<br>
+![GitHub repo size](https://img.shields.io/github/repo-size/aluiziocatao/progamacao-avancada-backend?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/aluiziocatao/progamacao-avancada-backend?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/aluiziocatao/progamacao-avancada-backend?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/aluiziocatao/progamacao-avancada-backend?style=for-the-badge)
 
 ![GitHub](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![GitHub](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![GitHub](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![GitHub](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![GitHub](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-
-<!-- ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/aluiziocatao/backend-avancado)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/aluiziocatao/backend-avancado) -->
 
 ### Esse repositório faz parte da disciplina de programação avanaçada backend com foco em NodeJS.
 
