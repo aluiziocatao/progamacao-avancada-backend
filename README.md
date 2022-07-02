@@ -15,11 +15,9 @@
 
 <!-- ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/aluiziocatao/backend-avancado)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed-raw/aluiziocatao/backend-avancado) -->
-<strong>
-    Esse repositório faz parte da da disciplina de programação avanaçada backend com foco em NodeJS.
-</strong>
-<br />
-<br />
+
+### Esse repositório faz parte da disciplina de programação avanaçada backend com foco em NodeJS.
+
 <p align="justify">
     Aprendemos nessa disciplina assuntos como: <samp>variáveis, objetos literais, desestruturação de dados, array, objetos, listas, estruturas, métodos, orientação a objetos, DOM, manipulação do DOM, herança, encapsulamento, clousure, eventos, promises, callbacks,</samp> um pouco de tudo dentro do JavaScript.
 </p>
