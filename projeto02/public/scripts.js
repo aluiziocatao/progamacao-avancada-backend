@@ -12,6 +12,16 @@ async function load() {
 
 load();
 
+   // Função para inserir os dados do formulário no arquivo JSON
+   function inserir ({name, url}) {
+    fetch('http://localhost:3000/'+'?name='+name+'&url='+url)
+}
+
+   // Função para deletas os dados do formulário no arquivo JSON
+  function deletar ({name,url}) {
+    fetch('http://localhost:3000/'+'?name='+name+'&url='+url+'&del=1')
+}
+
 function addElement({ name, url }) {
   let li = document.createElement("li");
   li.appendChild(
@@ -20,8 +30,9 @@ function addElement({ name, url }) {
   ul.appendChild(li);
 }
 
-function removeElement(element) {
+function removeElement(element, {name, url}) {
   //alert("Tem certeza que deseja excluir?");
+  deletar({name,url})
   element.parentNode.parentNode.remove();
 }
 
@@ -46,6 +57,8 @@ form.addEventListener("submit", (event) => {
   if (!/^http/.test(url)) return alert("Digite a url da maneira correta.");
   // Esse código após todas as verificações ele adciona na opção de favoritos o nome a URL que foi adicionado.
   addElement({ name, url });
+   // Chama a função INSERIR para adicionar os dados no URL.JSON
+   inserir({name, url})
   // Após adicionar a URL ele define o value como vázio.
   input.value = "";
 });
